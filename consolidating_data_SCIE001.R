@@ -30,24 +30,24 @@ inventory <- function(folder){
 }
 
 #how to do this for multiple sets of data (in seperate folders - one folder for each "lab group")
-data <- list.files("./data")
+data <- list.files("./data/", pattern = "2019")
 
-# reads in all the data, gets the unique number of rows, standardizes the x
 result <- data %>% 
   map(~paste0("./data/",.)) %>% 
   map_dfr(~inventory(.)) %>% 
-  unique() %>% 
-  mutate(Verified = "11/10/2019")
+  unique()
 
 #fixing the columns so it will rbind
 df_result <- result[1:8]
 
 # get a blank spreadsheet to compare with
-temp <- read_xlsx("2019Sep_Algae SCIE 001_template.xlsx", skip = 10, col_types = c("text","text","text","text","text","text","text","text"))
+temp <- read_xlsx("2019Sep_Algae SCIE 001_template.xlsx", 
+                  skip = 10, col_types = c("text","text","text","text","text","text","text","text"))
 
 #checking the data
-# get all the missing records
-missing <- anti_join(temp, result, by = "UUID")
+missing <- anti_join(temp, df_result, by = "UUID")
+
+test <- full_join(temp, df_result, by = "UUID")
 
 mt <- missing %>% 
   group_by(Genus,Species) %>% 
@@ -56,9 +56,3 @@ mt <- missing %>%
 dr <- df_result %>% 
   group_by(Genus,Species) %>% 
   summarise(n())
-
-write_csv(df_result, "results/2019_bioblitz_verified.csv")
-
-# Import data
-# matching by UUID
-# import only Verified Column
