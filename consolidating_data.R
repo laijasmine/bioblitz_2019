@@ -36,11 +36,12 @@ data <- list.files("./data")
 result <- data %>% 
   map(~paste0("./data/",.)) %>% 
   map_dfr(~inventory(.)) %>% 
-  unique() %>% 
-  mutate(Verified = "11/10/2019")
+  unique()
 
 #fixing the columns so it will rbind
-df_result <- result[1:8]
+# and making new column of the date verified
+df_result <- result[1:8] %>% 
+  mutate(Verified = "11/10/2019")
 
 # get a blank spreadsheet to compare with
 temp <- read_xlsx("2019Sep_Algae SCIE 001_template.xlsx", skip = 10, col_types = c("text","text","text","text","text","text","text","text"))
@@ -62,3 +63,10 @@ write_csv(df_result, "results/2019_bioblitz_verified.csv")
 # Import data
 # matching by UUID
 # import only Verified Column
+
+# Checking your work if everything is imported properly
+import <- read_xlsx("data/imported_20191015.xlsx")
+
+filter(import,!(import$`Accession Number` %in% df_result$`Accession Number`))
+
+filter(df_result,!(df_result$`Accession Number` %in% import$`Accession Number`))
