@@ -1,5 +1,5 @@
 # Reconciling Bioblitz spreadsheet data
-THe code takes care of the post-processing work after completing the bioblitz activity for UBC biology students at the Herbarium
+The code takes care of the post-processing work after completing the bioblitz activity for UBC biology students at the Herbarium
 
 Student emails -> Excel files -> Consolidated Excel files -> Import into Filemaker Database
 
