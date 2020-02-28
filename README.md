@@ -1,12 +1,23 @@
 # Reconciling Bioblitz spreadsheet data
 The code takes care of the post-processing work after completing the bioblitz activity for UBC biology students at the Herbarium
 
+### Workflow
 Student emails -> Excel files -> Consolidated Excel files -> Import into Filemaker Database
 
 ## Dependencies
-`install.packages("here", "tidyverse", "readxl")`
+* Python
+* R and `install.packages("here", "tidyverse", "readxl")`
 
 ## How to use
+### Pre Bioblitz - Setup
+1. Create a template spreadsheet based on Herbarium database where we last left off and including the following columns:
+> Accession Number,	X = Inventoried	Genus,	Species,	Country,	Date,	Collector,	UUID
+2. Distribute to students (ie through Canvas)
+3. Bioblitz!
+4. Save & Name file with first and last name
+5. Get students to email files
+
+### After Bioblitz - Post Processing
 1. Extract Excel files from email attachments
 - add .eml files to the email folder
 - requires **python**
