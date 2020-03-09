@@ -18,11 +18,6 @@ inventory <- function(folder){
   df_inventory <- df_all %>% 
     filter(!is.na(`X = Inventoried`))
   
-  # checking the contents
-  df_inventory %>% 
-    group_by(`X = Inventoried`) %>% 
-    summarise()
-  
   # removing duplicates
   df_dup <- distinct(df_inventory)
   
@@ -33,7 +28,7 @@ inventory <- function(folder){
 data <- list.files("./data")
 
 # reads in all the data, gets the unique number of rows, standardizes the x
-result <- data %>% 
+result_uni <- data %>% 
   map(~paste0("./data/",.)) %>% 
   map_dfr(~inventory(.)) %>% 
   unique()
