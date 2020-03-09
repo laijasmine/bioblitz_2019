@@ -11,7 +11,7 @@ Student emails -> Excel files -> Consolidated Excel files -> Import into Filemak
 ## How to use
 ### Pre Bioblitz - Setup
 1. Create a template spreadsheet based on Herbarium database where we last left off and including the following columns:
-> Accession Number,	X = Inventoried	Genus,	Species,	Country,	Date,	Collector,	UUID
+> Accession Number,	(X) Verified,	Genus,	Species,	Country,	Date,	Collector,	UUID
 2. Distribute to students (ie through Canvas)
 3. Bioblitz!
 4. Save & Name file with first and last name
