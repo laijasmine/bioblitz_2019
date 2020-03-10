@@ -20,7 +20,7 @@ Bioblitz -> Student emails -> Excel files -> Consolidated Excel files -> Import 
 4. Get students to save & email files
 
 ### After Bioblitz - Post Processing **--requires python**
-*FORK/ DOWNLOAD this repository first before you start working*
+*FORK / DOWNLOAD this repository first before you start working*
 
 1. Extract Excel files from email attachments
 - add .eml files to the email folder
@@ -37,11 +37,13 @@ Bioblitz -> Student emails -> Excel files -> Consolidated Excel files -> Import 
 3. Adding the data to the UBC herbarium database
 - open Filemaker
 - `File > Import Records > File`
+- select `Don't import first record (contains field names)`
 - select your file
 - select Arrange:`matching names`
 - select `Update matching records in found set`
-- select `Don't import first record (contains field names)`
-- in the fields select the below to match: UUID = UUID, Verified -> Verified
+- in the fields select the below to match (click to switch): 
+> UUID = UUID (what to match by)
+> Verified -> Verified (what fields to import)
 - press `import`
+- should match the number of rows
 <img src="https://github.com/laijasmine/bioblitz_2019/blob/master/import_ubcalgae_instructions/import_window.PNG" alt="import" width="600"/>
-
