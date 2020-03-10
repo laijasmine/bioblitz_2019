@@ -2,7 +2,7 @@
 The code takes care of the post-processing work after completing the bioblitz activity for UBC biology students at the Herbarium
 
 ### Workflow
-Student emails -> Excel files -> Consolidated Excel files -> Import into Filemaker Database
+Bioblitz -> Student emails -> Excel files -> Consolidated Excel files -> Import into Filemaker Database
 
 ## Dependencies
 * [Python - through Anaconda](https://datacarpentry.org/2016-05-29-PyCon/install.html)
@@ -14,14 +14,16 @@ Student emails -> Excel files -> Consolidated Excel files -> Import into Filemak
 ### Pre Bioblitz - Setup
 1. Create a template spreadsheet based on Herbarium database where we last left off and including the following columns:
 > Accession Number,	(X) Verified,	Genus,	Species,	Country,	Date,	Collector,	UUID
-2. Distribute file to students (ie through Canvas)
+> **(X) Verified** (make sure that this column is named the same way - important in code)
+2. Distribute file to students (ie. through Canvas)
 3. Bioblitz!
 4. Get students to save & email files
 
-### After Bioblitz - Post Processing
+### After Bioblitz - Post Processing **--requires python**
+*FORK/ DOWNLOAD this repository first before you start working*
+
 1. Extract Excel files from email attachments
 - add .eml files to the email folder
-- requires **python**
 - run `save_eml_attachments.py` in Visual Studio
 - files will be added to the `02_data` folder
 
