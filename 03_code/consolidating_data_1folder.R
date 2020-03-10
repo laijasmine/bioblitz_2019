@@ -38,7 +38,7 @@ data <- list.files(xlsx_files_folder, full.names = T)
 # reads in all the data, gets the unique number of rows, standardizes the x
 result <- data %>% 
   map_dfr(~inventory_files(.)) %>% 
-  unique()
+  distinct(UUID,.keep_all = T)
 
 # and making new column of the date verified
 df_result <- result %>% 
