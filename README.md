@@ -36,11 +36,12 @@ Bioblitz -> Student emails -> Excel files -> Consolidated Excel files -> Import 
 
 3. Adding the data to the UBC herbarium database
 - open Filemaker
-- file > import
+- `File > Import Records > File`
 - select your file
 - select Arrange:`matching names`
 - select `Update matching records in found set`
-- select `Don't import first record (contains field names`
+- select `Don't import first record (contains field names)`
+- in the fields select the below to match: UUID = UUID, Verified -> Verified
 - press `import`
 <img src="https://github.com/laijasmine/bioblitz_2019/blob/master/import_ubcalgae_instructions/import_window.PNG" alt="import" width="600"/>
 
