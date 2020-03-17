@@ -4,40 +4,15 @@ library(readxl)
 # if you need to extract data from emails see save_eml_attachments.py
 #change some variables
 verified_date <- "03/17/2020"
-xlsx_files_folder <- "./02_data/20200309_data/"
+file <- "./02_data/2020Mar10_DE_algaeinventory.xlsx"
 blank_template <- "./00_templates/2020Mar01_UBCAlgae ENVR200 BioBlitz_template.xlsx"
-name_of_results_file <- "04_results/2019_bioblitz_verified_envr200.csv"
+name_of_results_file <- "04_results/2019_bioblitz_verified_volunteers.csv"
   
-#function to take the data and give what was inventoried
-inventory_files <- function(files){
-  
-  # read in all the files and 
-  # skip the first 10 rows (instructions and student names)
-  df_all <- files %>% 
-    map_dfr(~read_xlsx(.,skip = 3))
-  
-  # take only the rows where it was inventoried (x)
-  df_inventory <- df_all %>% 
-    filter(!is.na(`(X) Verified`))
-  
-  # checking the contents
-  df_inventory %>% 
-    group_by(`(X) Verified`) %>% 
-    summarise()
-  
-  # removing duplicates
-  df_dup <- distinct(df_inventory)
-  
-  return(df_dup)
-}
-
-#how to do this for multiple sets of data (in seperate folders - one folder for each "lab group")
-data <- list.files(xlsx_files_folder, full.names = T)
+data <- read_xlsx(file)
 
 # reads in all the data, gets the unique number of rows, standardizes the x
 result <- data %>% 
-  map_dfr(~inventory_files(.)) %>% 
-  distinct(UUID,.keep_all = T)
+  filter(!is.na(`Inventory (x = verified)`))
 
 # and making new column of the date verified
 df_result <- result %>% 
