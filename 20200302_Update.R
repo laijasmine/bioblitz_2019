@@ -39,14 +39,15 @@ names(result_1) <- names(check)
 df_all <- rbind(result_1,check)
 
 df_inventory <- df_all %>% 
-  filter(!is.na(`X = Inventoried`))
+  filter(!is.na(`X = Inventoried`)) %>% 
+  mutate(Verified = "03/16/2020")
 
 # removing duplicates
-df_dup <- distinct(df_inventory)
+df_dup <- distinct(df_inventory, UUID, .keep_all = T)
 
 #comparing between previous upload
 result_bio <- read_csv("results/2019_bioblitz_verified.csv")
 
 diff <- anti_join(df_dup, result_bio, by = "UUID")
 
-write_csv("results/")
+write_csv(diff, "results/2020Mar17_missinginventory.csv")
