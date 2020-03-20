@@ -2,7 +2,11 @@ library(here)
 library(tidyverse)
 library(readxl)
 
-# if you need to extract data from emails see save_eml_attachments.py
+#change some variables
+verified_date <- "03/17/2020"
+xlsx_files_folder <- "./02_data"
+blank_template <- "./00_templates/2020Mar01_UBCAlgae ENVR200 BioBlitz_template.xlsx"
+name_of_results_file <- "04_results/2019_bioblitz_verified_envr200.csv"
 
 #function to take the data and give what was inventoried
 inventory <- function(folder){
@@ -30,7 +34,7 @@ inventory <- function(folder){
 }
 
 #how to do this for multiple sets of data (in seperate folders - one folder for each "lab group")
-data <- list.files("./02_data/20200309_data/")
+data <- list.files(xlsx_files_folder)
 
 # reads in all the data, gets the unique number of rows, standardizes the x
 result <- data %>% 
@@ -41,7 +45,7 @@ result <- data %>%
 #fixing the columns so it will rbind
 # and making new column of the date verified
 df_result <- result[1:8] %>% 
-  mutate(Verified = "11/10/2019")
+  mutate(Verified = verified_date)
 
 # get a blank spreadsheet to compare with
 temp <- read_xlsx("2019Sep_Algae SCIE 001_template.xlsx", skip = 10, col_types = c("text","text","text","text","text","text","text","text"))

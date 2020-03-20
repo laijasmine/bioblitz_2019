@@ -36,14 +36,3 @@ summary_of_results <- df_result %>%
   summarise(n())
 
 write_csv(df_result, name_of_results_file)
-
-# Import data
-# matching by UUID
-# import only Verified Column
-
-# Checking your work if everything is imported properly
-# import <- read_xlsx("data/imported_20191015.xlsx")
-# 
-# filter(import,!(import$`Accession Number` %in% df_result$`Accession Number`))
-# 
-# filter(df_result,!(df_result$`Accession Number` %in% import$`Accession Number`))
