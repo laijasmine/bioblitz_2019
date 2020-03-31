@@ -47,4 +47,4 @@ Bioblitz -> Student emails -> Excel files -> Consolidated Excel files -> Import 
 - press `import`
 - should match the number of rows
 
-<img src="https://github.com/laijasmine/bioblitz_2019/blob/master/i00_images/import_window.PNG" alt="import" width="600"/>
+<img src="https://github.com/laijasmine/bioblitz_2019/blob/master/00_images/import_window.PNG" alt="import" width="600"/>
