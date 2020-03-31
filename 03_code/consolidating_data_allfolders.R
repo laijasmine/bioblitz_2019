@@ -2,6 +2,9 @@ library(here)
 library(tidyverse)
 library(readxl)
 
+# 2020 Mar 31 - does not currently work because there is a mix of files with different 
+# (X) Verified named columns
+
 #change some variables
 verified_date <- "03/17/2020"
 xlsx_files_folder <- "./02_data"
@@ -48,7 +51,8 @@ df_result <- result[1:8] %>%
   mutate(Verified = verified_date)
 
 # get a blank spreadsheet to compare with
-temp <- read_xlsx("2019Sep_Algae SCIE 001_template.xlsx", skip = 10, col_types = c("text","text","text","text","text","text","text","text"))
+temp <- read_xlsx("2019Sep_Algae SCIE 001_template.xlsx", skip = 10, 
+                  col_types = c("text","text","text","text","text","text","text","text"))
 
 #checking the data
 # get all the missing records
@@ -67,10 +71,3 @@ write_csv(df_result, "results/2019_bioblitz_verified.csv")
 # Import data
 # matching by UUID
 # import only Verified Column
-
-# Checking your work if everything is imported properly
-import <- read_xlsx("data/imported_20191015.xlsx")
-
-filter(import,!(import$`Accession Number` %in% df_result$`Accession Number`))
-
-filter(df_result,!(df_result$`Accession Number` %in% import$`Accession Number`))

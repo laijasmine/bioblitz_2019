@@ -7,7 +7,7 @@ output: html_document
 1. open the code template for the data you want to work with `consolidtaing_data_<type>.R`:
 * **1file** - for if you are only processing one xlsx file
 * **1folder** - dealing with one class and read all xlsx files inside the folder
-* **allfolders** - multiple classes and days and read all the files across all folders
+* **allfolders** - multiple classes and days and read all the files across all folders *- does not work with files in the 02_data because all the columns are different*
 
 2. update the variables at the top
 For example:
