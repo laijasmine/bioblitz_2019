@@ -1,0 +1,27 @@
+---
+title: "Code instructions"
+output: html_document
+---
+
+## Basic usage
+1. open the code template for the data you want to work with `consolidtaing_data_<type>.R`:
+* **1file** - for if you are only processing one xlsx file
+* **1folder** - dealing with one class and read all xlsx files inside the folder
+* **allfolders** - multiple classes and days and read all the files across all folders *- does not work with files in the 02_data because all the columns are different*
+
+2. update the variables at the top
+For example:
+```{r}
+#change some variables
+verified_date <- "03/17/2020"
+file <- "./02_data/2020Mar10_DE_algaeinventory.xlsx"
+blank_template <- "./00_templates/2020Mar01_UBCAlgae ENVR200 BioBlitz_template.xlsx"
+name_of_results_file <- "04_results/2019_bioblitz_verified_volunteers.csv"
+```
+
+3. Run the code!
+if you have rstudio installed
+- select everything in the file `ctrl + a`
+- go to the upper right and click run
+
+4. Check the output in the 04_results folder
