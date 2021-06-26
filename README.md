@@ -7,7 +7,6 @@ Bioblitz -> Student emails -> Excel files -> Consolidated Excel files -> Import 
 ## Dependencies
 * [Python - through Anaconda](https://datacarpentry.org/2016-05-29-PyCon/install.html)
 * [R](https://cran.r-project.org/)
-* [RStudio](https://rstudio.com/products/rstudio/download/#download)
 * in the R console - `install.packages("here", "tidyverse", "readxl")`
 
 ## How to use
